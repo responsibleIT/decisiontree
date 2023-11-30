@@ -38,7 +38,7 @@ const chart = () => {
   const gLink = svg
     .append("g")
     .attr("fill", "none")
-    .attr("stroke", "#f00")
+    .attr("stroke", "#964B00")
     .attr("stroke-opacity", 1)
     .attr("stroke-width", 4.5);
 
@@ -68,7 +68,7 @@ const chart = () => {
       .transition()
       .duration(duration)
       .attr("height", height)
-      .attr("viewBox", [-marginLeft, left.y - marginTop, width, height])
+      .attr("viewBox", [-500, left.y - marginTop, width, height])
       .tween(
         "resize",
         window.ResizeObserver ? null : () => () => svg.dispatch("toggle")
@@ -81,7 +81,7 @@ const chart = () => {
     const nodeEnter = node
       .enter()
       .append("g")
-      .attr("transform", (d) => `translate(${source.x0},${source.y0})`)
+      .attr("transform", (d) => `translate(${source.y0},${source.x0})`)
       .attr("fill-opacity", 0)
       .attr("stroke-opacity", 0)
       .on("click", (event, d) => {
@@ -90,9 +90,10 @@ const chart = () => {
       });
 
     nodeEnter
-      .append("circle")
-      .attr("r", 2.5)
-      .attr("fill", (d) => (d._children ? "#555" : "#999"))
+      .append("ellipse")
+      .attr("rx", 10)
+      .attr("ry", 5)
+      .attr("fill", (d) => (d._children ? "#f00" : "#008000"))
       .attr("stroke-width", 10);
 
     nodeEnter
@@ -163,7 +164,7 @@ const chart = () => {
   root.descendants().forEach((d, i) => {
     d.id = i;
     d._children = d.children;
-    if (d.depth && d.data.name.length !== 7) d.children = null;
+    if (d.depth) d.children = null;
   });
 
   update(null, root);
