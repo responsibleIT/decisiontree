@@ -20,9 +20,9 @@ const chart = () => {
   // Define the tree layout and the shape for links.
   const tree = d3.tree().nodeSize([dx, dy]);
   const diagonal = d3
-    .linkHorizontal()
-    .y((d) => d.x)
-    .x((d) => d.y);
+    .linkVertical()
+    .y((d) => d.y)
+    .x((d) => d.x);
 
   // Create the SVG container, a layer for the links and a layer for the nodes.
   const svg = d3
@@ -58,17 +58,17 @@ const chart = () => {
     let left = root;
     let right = root;
     root.eachBefore((node) => {
-      if (node.x < left.x) left = node;
-      if (node.x > right.x) right = node;
+      if (node.y < left.y) left = node;
+      if (node.y > right.y) right = node;
     });
 
-    const height = right.x - left.x + marginTop + marginBottom;
+    const height = right.y - left.y + marginTop + marginBottom;
 
     const transition = svg
       .transition()
       .duration(duration)
       .attr("height", height)
-      .attr("viewBox", [-marginLeft, left.x - marginTop, width, height])
+      .attr("viewBox", [-marginLeft, left.y - marginTop, width, height])
       .tween(
         "resize",
         window.ResizeObserver ? null : () => () => svg.dispatch("toggle")
@@ -81,7 +81,7 @@ const chart = () => {
     const nodeEnter = node
       .enter()
       .append("g")
-      .attr("transform", (d) => `translate(${source.y0},${source.x0})`)
+      .attr("transform", (d) => `translate(${source.x0},${source.y0})`)
       .attr("fill-opacity", 0)
       .attr("stroke-opacity", 0)
       .on("click", (event, d) => {
@@ -97,8 +97,8 @@ const chart = () => {
 
     nodeEnter
       .append("text")
-      .attr("dy", "0.31em")
-      .attr("x", (d) => (d._children ? -6 : 6))
+      .attr("dx", "0.31em")
+      .attr("y", (d) => (d._children ? -6 : 6))
       .attr("text-anchor", (d) => (d._children ? "end" : "start"))
       .text((d) => d.data.name)
       .clone(true)
@@ -111,7 +111,7 @@ const chart = () => {
     const nodeUpdate = node
       .merge(nodeEnter)
       .transition(transition)
-      .attr("transform", (d) => `translate(${d.y},${d.x})`)
+      .attr("transform", (d) => `translate(${d.x},${d.y})`)
       .attr("fill-opacity", 1)
       .attr("stroke-opacity", 1);
 
@@ -120,7 +120,7 @@ const chart = () => {
       .exit()
       .transition(transition)
       .remove()
-      .attr("transform", (d) => `translate(${source.y},${source.x})`)
+      .attr("transform", (d) => `translate(${source.x},${source.y})`)
       .attr("fill-opacity", 0)
       .attr("stroke-opacity", 0);
 
@@ -132,7 +132,7 @@ const chart = () => {
       .enter()
       .append("path")
       .attr("d", (d) => {
-        const o = { x: source.x0, y: source.y0 };
+        const o = { y: source.x0, x: source.y0 };
         return diagonal({ source: o, target: o });
       });
 
@@ -145,20 +145,20 @@ const chart = () => {
       .transition(transition)
       .remove()
       .attr("d", (d) => {
-        const o = { x: source.x, y: source.y };
+        const o = { y: source.x, x: source.y };
         return diagonal({ source: o, target: o });
       });
 
     // Stash the old positions for transition.
     root.eachBefore((d) => {
-      d.x0 = d.x;
-      d.y0 = d.y;
+      d.x0 = d.y;
+      d.y0 = d.x;
     });
   }
 
   // Do the first update to the initial configuration of the tree — where a number of nodes
   // are open (arbitrarily selected as the root, plus nodes with 7 letters).
-  root.x0 = dy / 2;
+  root.x0 = dx / 2;
   root.y0 = 0;
   root.descendants().forEach((d, i) => {
     d.id = i;
