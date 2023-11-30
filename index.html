@@ -1,112 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Decision Tree</title>
-    <script src="jquery.js"></script>
-    <script src="d3.js"></script>
-    <script src="tree.js"></script>
-</head>
-<body>
-<div id="app">
-    <div id="header">
-    <h1>Income Decision Tree</h1>
+  </head>
+  <body>
+    <div id="app">
+      <div id="header">
+        <h1>Income Decision Tree</h1>
+      </div>
+      <div id="tree-container"></div>
     </div>
-    <div id="htmlwidget_container">
-        <div class="collapsibleTree html-widget html-fill-item-overflow-hidden html-fill-item"
-             id="htmlwidget-4607c67c8c05af3af877" style="width: 90%; height: 90%">
-        </div>
-    </div>
-</div>
-<script type="module" src="/main.js"></script>
-<script type="application/json" data-for="htmlwidget-4607c67c8c05af3af877">{
-    "x": {
-        "data": {
-            "name": "Start",
-            "children": [
-                {
-                    "name": "Married",
-                    "children": [
-                        {
-                            "name": "High school or higher",
-                            "children": [
-                                {
-                                    "name": "No benefit"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Less than high school",
-                            "children": [
-                                {
-                                    "name": "Capital gain >= 20k",
-                                    "children": [
-                                        {
-                                            "name": "No benefit"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "name": "Capital gain < 20k",
-                                    "children": [
-                                        {
-                                            "name": "Benefit!"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Not married",
-                    "children": [
-                        {
-                            "name": "Capital gain >= 30k",
-                            "children": [
-                                {
-                                    "name": "No benefit"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Capital gain < 30k",
-                            "children": [
-                                {
-                                    "name": "Benefit!"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        "options": {
-            "hierarchy": [
-                "Split1",
-                "Split2",
-                "Split3",
-                "Income"
-            ],
-            "input": null,
-            "attribute": "leafCount",
-            "linkLength": null,
-            "fontSize": 12,
-            "tooltip": true,
-            "collapsed": true,
-            "zoomable": true,
-            "margin": {
-                "top": 0,
-                "bottom":0,
-                "left": 15,
-                "right": 0
-            },
-            "fill": "green"
-        }
-    },
-    "evals": [],
-    "jsHooks": []
-}</script>
-</body>
+    <script type="module" src="/main.js"></script>
+  </body>
 </html>

@@ -1,3 +1,7 @@
+/* h1{
+    font-size: 3em;
+}
+
 .collapsibleTree .node {
     cursor: pointer;
 }
@@ -65,4 +69,4 @@ text {
 
 .tooltip {
     transform: rotate(90deg);
-}
+} */

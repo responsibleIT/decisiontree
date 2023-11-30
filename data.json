@@ -1,0 +1,60 @@
+{
+        "name": "Start",
+        "children": [
+            {
+                "name": "Married",
+                "children": [
+                    {
+                        "name": "High school or higher",
+                        "children": [
+                            {
+                                "name": "High income"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Less than high school",
+                        "children": [
+                            {
+                                "name": "Capital gain >= 20k",
+                                "children": [
+                                    {
+                                        "name": "High income"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Capital gain < 20k",
+                                "children": [
+                                    {
+                                        "name": "Low income"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Not married",
+                "children": [
+                    {
+                        "name": "Capital gain >= 30k",
+                        "children": [
+                            {
+                                "name": "High income"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Capital gain < 30k",
+                        "children": [
+                            {
+                                "name": "Low income"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
