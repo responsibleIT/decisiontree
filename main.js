@@ -1,5 +1,6 @@
 import "./style.css";
-import data from "./data.json";
+// import data from "./data.json";
+import data from "./whole_tree.json";
 import * as d3 from "d3";
 
 const chart = () => {
