@@ -1,91 +1,48 @@
-div#tree-container {
+body {
+    padding: 8px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#tree-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-content: center;
+    height: 100%;
+    width: 66%;
+    border: black 1px solid;
+}
+
+#decision-container{
+    height: 100%;
+    width: 33%;
+}
+
+#result-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    min-height: 600px;
+    border: black 1px solid;
+    padding: 8px;
 }
 
 svg {
+    display: block;
+    overflow: auto;
     transform: rotate(-180deg);
 }
 
 text {
-    /* transform: rotate(-180deg); */
     text-anchor: start;
     font-size: 15px;
     transform: translate(15px, 10px);
     rotate: -180deg;
 }
-/* h1{
-    font-size: 3em;
-}
-
-.collapsibleTree .node {
-    cursor: pointer;
-}
-
-.collapsibleTree .node circle {
-    fill: #fff;
-    stroke: #000;
-}
-.collapsibleTree .node text {
-    font: 10px sans-serif;
-}
-.collapsibleTree .link {
-    fill: none;
-    stroke: #ccc;
-    stroke-width: 1.5px;
-}
-.collapsibleTree div.tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 3px;
-    font: 10px sans-serif;
-    background: #fff;
-    border: 2px;
-    border-radius: 8px;
-    border-style: solid;
-    pointer-events: none;
-}
-
-.collapsibleTree {
-    display: inline-block;
-    position: absolute;
-    transform-origin: left top;
-    transform: rotate(-90deg) translateX(-50%);
-}
-
-body {
-    font-family: sans-serif;
-    cursor: grab;
-}
-
-#app {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-#header {
-    height: 20vh;
-    width: 100%;
-}
-
-#htmlwidget_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 80vh;
-}
-
-text {
-    transform: rotate(90deg);
-}
-
-.tooltip {
-    transform: rotate(90deg);
-} */

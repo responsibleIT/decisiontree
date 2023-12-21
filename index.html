@@ -1,17 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Decision Tree</title>
-  </head>
-  <body>
-    <div id="app">
-      <div id="header">
-        <h1>Income Decision Tree</h1>
-      </div>
-      <div id="tree-container"></div>
+</head>
+<body>
+<div id="app">
+    <div id="tree-container"></div>
+    <div id="decision-container" class="container">
+        <p class="animate__animated animate__fadeInRight"><strong>Decisions</strong></p>
+        <form id="decision-form">
+            <fieldset id="q1-fields" class="animate__animated animate__fadeInRight">
+                <label for="q1">Wat is uw nationaliteit of verblijfsstatus?</label>
+                <select id="q1" name="q1" required>
+                    <option selected disabled>Selecteer een nationaliteit / verblijfsstatus</option>
+                    <option value="geen">Geen van deze</option>
+                    <option value="stempel">Stempel in mijn paspoort</option>
+                    <option value="verblijfsvergunning">Geldige Verblijfsvergunning</option>
+                    <option value="eu">EU paspoort</option>
+                    <option value="nederlander">Nederlander</option>
+                </select>
+            </fieldset>
+
+            <fieldset id="q2-fields" class="animate__animated animate__fadeInRight" style="display: none">
+                <legend>
+                    Hebt u rechtshulp of rechtsbijstand nodig?
+                </legend>
+                <label for="q2-y">
+                    <input type="radio" id="q2-y" name="q2" value="ja">
+                    Ja
+                </label>
+                <label for="q2-n">
+                    <input type="radio" id="q2-n" name="q2" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+
+            <fieldset id="q3-fields" class="animate__animated animate__fadeInRight" style="display: none">
+                <legend>
+                    Hebt u geld nodig voor een bewindvoerder, curator of mentorschap?
+                </legend>
+                <label for="q3-y">
+                    <input type="radio" id="q3-y" name="q3" value="ja">
+                    Ja
+                </label>
+                <label for="q3-n">
+                    <input type="radio" id="q3-n" name="q3" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+
+            <fieldset id="q4-fields" class="animate__animated animate__fadeInRight" style="display: none;">
+                <legend>
+                    Gaat u verhuizen of bent u onlangs verhuisd?
+                </legend>
+                <label for="q4-y">
+                    <input type="radio" id="q4-y" name="q4" value="ja">
+                    Ja
+                </label>
+                <label for="q4-n">
+                    <input type="radio" id="q4-n" name="q4" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+
+            <fieldset id="q5-fields" class="animate__animated animate__fadeInRight" style="display: none;">
+                <legend>
+                    Kunt u de verhuiskosten betalen?
+                </legend>
+                <label for="q5-y">
+                    <input type="radio" id="q5-y" name="q5" value="ja">
+                    Ja
+                </label>
+                <label for="q5-n">
+                    <input type="radio" id="q5-n" name="q5" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+
+            <fieldset id="q6-fields" class="animate__animated animate__fadeInRight" style="display: none;">
+                <legend>
+                    Hebt u geld nodig voor uw eerste huur of borg?
+                </legend>
+                <label for="q6-y">
+                    <input type="radio" id="q6-y" name="q6" value="ja">
+                    Ja
+                </label>
+                <label for="q6-n">
+                    <input type="radio" id="q6-n" name="q6" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+
+            <fieldset id="q7-fields" class="animate__animated animate__fadeInRight" style="display: none;">
+                <legend>
+                    Kunt u de huur of hypotheek van uw huidig woning betalen?
+                </legend>
+                <label for="q7-y">
+                    <input type="radio" id="q7-y" name="q7" value="ja">
+                    Ja
+                </label>
+                <label for="q7-h">
+                    <input type="radio" id="q7-h" name="q7" value="huurtoeslag">
+                    Nee, maar ik heb wel recht op huurtoeslag
+                </label>
+                <label for="q7-n">
+                    <input type="radio" id="q7-n" name="q7" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+
+
+            <fieldset id="q8-fields" class="animate__animated animate__fadeInRight" style="display: none;">
+                <legend>
+                    Hebt u geld nodig om uw huis in te richten?
+                </legend>
+                <label for="q8-y">
+                    <input type="radio" id="q8-y" name="q8" value="ja">
+                    Ja
+                </label>
+                <label for="q8-n">
+                    <input type="radio" id="q8-n" name="q8" value="nee">
+                    Nee
+                </label>
+            </fieldset>
+        </form>
+        <div id="result-container" class="animate__animated animate__fadeInRight" style="display: none;">
+            RESULT!
+        </div>
     </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+</div>
+<script type="module" src="/main.js"></script>
+</body>
 </html>
